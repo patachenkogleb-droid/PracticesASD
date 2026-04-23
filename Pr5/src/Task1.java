@@ -40,9 +40,14 @@ class PaymentProcessor {
 public class Task1 {
     public static void main(String[] args) {
         PaymentProcessor processor = new PaymentProcessor();
-        PaymentMethod card = new CardPayment();
 
+        PaymentMethod card = new CardPayment();
         processor.process(card, 100);
         card.payWithFee(100, 10);
+
+        PaymentMethod paypal = new PayPalPayment();
+        processor.process(paypal, 100);
+        paypal.payWithFee(100, 10);
+
     }
 }
